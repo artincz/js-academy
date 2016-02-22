@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="sample-app" ng-controller="SampleAppController">
 <head>
   <title>Sample App</title>
 
@@ -7,14 +7,16 @@
   <link rel="stylesheet" href="bower_components/bootswatch/yeti/bootstrap.css">
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
 
   <!-- app files -->
   <link rel="stylesheet" href="app/sample-app.css">
+  <script src="app/app.js"></script>
 </head>
 <body>
   <div class="navbar navbar-default navbar-static-top">
     <div class="container">
-      <a href="#/" class="navbar-brand">SampleApp</a>
+      <a href="#/" class="navbar-brand">{{ appName }}</a>
 
       <ul class="nav navbar-nav">
         <li class="active"><a href="index.html">Contacts</a></li>
