@@ -33,54 +33,43 @@
 
   <div class="top">
     <div class="container">
-      <h1>Contacts</h1>
+      <a href="show.html">Back to detail...</a>
+
+      <h1>
+        Edit contact<br>
+        <small>Donald Black</small>
+      </h1>
     </div>
   </div>
 
   <div class="container">
-    <div class="row">
-      <div class="col-md-8">
-        <p class="lead">2 matching contacts</p>
-      </div>
-      <div class="col-md-4">
-        <input class="form-control" placeholder="Search..." autofocus>
-      </div>
-    </div>
+    <form>
+      <label>Name</label>
+      <input type="text" class="form-control" autofocus>
 
-    <br>
+      <label>Company</label>
+      <input type="text" class="form-control">
 
-    <table class="table table-bordered table-striped table-hover">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Phone</th>
-          <th>E-mail</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <strong><a href="show.html">Donald Black</a></strong><br>
-            Topicware
-          </td>
-          <td>6-(880)062-6935</td>
-          <td>
-            <a href="mailto:dblack0@mashable.com">dblack0@mashable.com</a>
-          </td>
-        </tr>
+      <label>Job Title</label>
+      <input type="text" class="form-control">
 
-        <tr>
-          <td>
-            <strong><a href="show.html">Frank Little</a></strong><br>
-            Browseblab
-          </td>
-          <td>9-(804)406-9373</td>
-          <td>
-            <a href="mailto:flittle2@tumblr.com">flittle2@tumblr.com</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+      <label>Phone</label>
+      <input type="text" class="form-control">
+
+      <label>Email</label>
+      <input type="text" class="form-control">
+
+      <label>Address</label>
+      <textarea rows="4" class="form-control"></textarea>
+
+      <label>Note</label>
+      <textarea rows="4" class="form-control"></textarea>
+
+      <br>
+
+      <a href="show.html" class="btn btn-primary">Save</a>
+      <a href="show.html" class="btn btn-link">Cancel</a>
+    </form>
   </div>
 </body>
 </html>
