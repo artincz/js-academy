@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="app/sample-app.css">
   <script src="app/app.js"></script>
 </head>
-<body>
+<body ng-controller="EditContactController">
   <div class="navbar navbar-default navbar-static-top">
     <div class="container">
       <a href="#/" class="navbar-brand">{{ appName }}</a>
@@ -39,7 +39,7 @@
 
       <h1>
         Edit contact<br>
-        <small>Donald Black</small>
+        <small>{{ contact.name }}</small>
       </h1>
     </div>
   </div>
@@ -47,25 +47,25 @@
   <div class="container">
     <form>
       <label>Name</label>
-      <input type="text" class="form-control" autofocus>
+      <input type="text" class="form-control" ng-model="contact.name" autofocus>
 
       <label>Company</label>
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" ng-model="contact.company">
 
       <label>Job Title</label>
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" ng-model="contact.jobTitle">
 
       <label>Phone</label>
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" ng-model="contact.phone">
 
       <label>Email</label>
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" ng-model="contact.email">
 
       <label>Address</label>
-      <textarea rows="4" class="form-control"></textarea>
+      <textarea rows="4" class="form-control" ng-model="contact.address"></textarea>
 
       <label>Note</label>
-      <textarea rows="4" class="form-control"></textarea>
+      <textarea rows="4" class="form-control" ng-model="contact.note"></textarea>
 
       <br>
 

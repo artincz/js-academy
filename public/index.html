@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="app/sample-app.css">
   <script src="app/app.js"></script>
 </head>
-<body>
+<body ng-controller="ContactListingController">
   <div class="navbar navbar-default navbar-static-top">
     <div class="container">
       <a href="#/" class="navbar-brand">{{ appName }}</a>
@@ -42,7 +42,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8">
-        <p class="lead">2 matching contacts</p>
+        <p class="lead">{{ contacts.length }} matching contacts</p>
       </div>
       <div class="col-md-4">
         <input class="form-control" placeholder="Search..." autofocus>
@@ -60,25 +60,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr ng-repeat="c in contacts">
           <td>
-            <strong><a href="show.html">Donald Black</a></strong><br>
-            Topicware
+            <strong><a href="show.html">{{ c.name }}</a></strong><br>
+            {{ c.company }}
           </td>
-          <td>6-(880)062-6935</td>
+          <td>{{ c.phone }}</td>
           <td>
-            <a href="mailto:dblack0@mashable.com">dblack0@mashable.com</a>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <strong><a href="show.html">Frank Little</a></strong><br>
-            Browseblab
-          </td>
-          <td>9-(804)406-9373</td>
-          <td>
-            <a href="mailto:flittle2@tumblr.com">flittle2@tumblr.com</a>
+            <a href="mailto:{{ c.email }}">{{ c.email }}</a>
           </td>
         </tr>
       </tbody>

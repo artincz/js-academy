@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="app/sample-app.css">
   <script src="app/app.js"></script>
 </head>
-<body>
+<body ng-controller="ShowContactController">
   <div class="navbar navbar-default navbar-static-top">
     <div class="container">
       <a href="#/" class="navbar-brand">{{ appName }}</a>
@@ -43,10 +43,10 @@
       </div>
 
       <h1>
-        Donald Black
+        {{ contact.name }}
         <br>
         <small>
-          Tax Accountant at Topicware
+          {{ contact.company }}
         </small>
       </h1>
     </div>
@@ -56,22 +56,22 @@
     <div class="row">
       <div class="col-md-4">
         <h3><small>Phone</small></h3>
-        6-(880)062-6935
+        {{ contact.phone }}
       </div>
 
       <div class="col-md-4">
         <h3><small>Email</small></h3>
-        dblack0@mashable.com
+        {{ contact.email }}
       </div>
 
       <div class="col-md-4">
         <h3><small>Address</small></h3>
-        <address>4 Elmside Parkway<br>Buffalo, NY 14220</address>
+        <address>{{ contact.address }}</address>
       </div>
 
       <div class="col-md-8">
         <h3><small>Note</small></h3>
-        <p>Phasellus in felis. Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis.</p>
+        <p>{{ contact.note }}</p>
       </div>
     </div>
   </div>
