@@ -1,0 +1,44 @@
+<div class="top">
+  <div class="container">
+    <h1>Contacts</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <p class="lead">{{ contacts.length }} matching contacts</p>
+    </div>
+    <div class="col-md-4">
+      <input class="form-control" placeholder="Search..." autofocus>
+    </div>
+  </div>
+
+  <button ui-sref="new" class="btn btn-success">Add</button>
+
+  <br>
+  <br>
+
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>E-mail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="c in contacts">
+        <td>
+          <strong><a ui-sref="show({id: c.id})">{{ c.name }}</a></strong><br>
+          {{ c.company }}
+        </td>
+        <td>{{ c.phone }}</td>
+        <td>
+          <a href="mailto:{{ c.email }}">{{ c.email }}</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

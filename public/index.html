@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="sample-app" ng-controller="SampleAppController">
+<html ng-app="contacts-app">
 <head>
   <title>Sample App</title>
 
@@ -8,70 +8,19 @@
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 
   <!-- app files -->
-  <link rel="stylesheet" href="app/sample-app.css">
+  <link rel="stylesheet" href="styles/contacts-app.css">
   <script src="app/app.js"></script>
+  <script src="app/home/home.js"></script>
+  <script src="app/show/show.js"></script>
+  <script src="app/edit/edit.js"></script>
+  <script src="app/edit/new.js"></script>
+  <script src="app/login/login.js"></script>
+  <script src="app/layout/layout.js"></script>
 </head>
-<body ng-controller="ContactListingController">
-  <div class="navbar navbar-default navbar-static-top">
-    <div class="container">
-      <a href="#/" class="navbar-brand">{{ appName }}</a>
+<body ui-view>
 
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="index.html">Contacts</a></li>
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown">John Doe <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="login.html">Sign out</a></li>
-            </ul>
-          </li>
-        </ul>
-    </div>
-  </div>
-
-  <div class="top">
-    <div class="container">
-      <h1>Contacts</h1>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8">
-        <p class="lead">{{ contacts.length }} matching contacts</p>
-      </div>
-      <div class="col-md-4">
-        <input class="form-control" placeholder="Search..." autofocus>
-      </div>
-    </div>
-
-    <br>
-
-    <table class="table table-bordered table-striped table-hover">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Phone</th>
-          <th>E-mail</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="c in contacts">
-          <td>
-            <strong><a href="show.html">{{ c.name }}</a></strong><br>
-            {{ c.company }}
-          </td>
-          <td>{{ c.phone }}</td>
-          <td>
-            <a href="mailto:{{ c.email }}">{{ c.email }}</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
 </body>
 </html>

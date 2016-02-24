@@ -1,0 +1,40 @@
+<div class="top">
+  <div class="container">
+    <a ui-sref="show({id: contact.id})"><i class="glyphicon glyphicon-chevron-left"></i> Back to detail</a>
+
+    <h1>
+      Edit contact<br>
+      <small>{{ contact.name }}</small>
+    </h1>
+  </div>
+</div>
+
+<div class="container">
+  <form>
+    <label>Name</label>
+    <input type="text" class="form-control" ng-model="contact.name" autofocus>
+
+    <label>Company</label>
+    <input type="text" class="form-control" ng-model="contact.company">
+
+    <label>Job Title</label>
+    <input type="text" class="form-control" ng-model="contact.jobTitle">
+
+    <label>Phone</label>
+    <input type="text" class="form-control" ng-model="contact.phone">
+
+    <label>Email</label>
+    <input type="text" class="form-control" ng-model="contact.email">
+
+    <label>Address</label>
+    <textarea rows="4" class="form-control" ng-model="contact.address"></textarea>
+
+    <label>Note</label>
+    <textarea rows="4" class="form-control" ng-model="contact.note"></textarea>
+
+    <br>
+
+    <a ng-click="save()" class="btn btn-primary">Save</a>
+    <a ui-sref="show({id: contact.id})" class="btn btn-link">Cancel</a>
+  </form>
+</div>

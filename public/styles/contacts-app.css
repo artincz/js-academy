@@ -27,3 +27,12 @@ address{
   padding: 3em 0 5em 0;
   margin-bottom: 2em;
 }
+
+.navbar-brand.logo {
+  padding: 5px 15px;
+}
+
+.navbar-brand.logo img {
+  height: 100%;
+  width: auto;
+}
