@@ -36,3 +36,11 @@ address{
   height: 100%;
   width: auto;
 }
+
+.contacts-table th {
+  cursor: pointer;
+}
+
+.contacts-table th i.glyphicon {
+  color: #aaaaaa;
+}

@@ -7,10 +7,10 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-      <p class="lead">{{ contacts.length }} matching contacts</p>
+      <p class="lead">{{ filteredContacts.length }} matching contacts</p>
     </div>
     <div class="col-md-4">
-      <input class="form-control" placeholder="Search..." autofocus>
+      <input class="form-control" placeholder="Search..." autofocus ng-model="searchQuery">
     </div>
   </div>
 
@@ -19,16 +19,29 @@
   <br>
   <br>
 
-  <table class="table table-bordered table-striped table-hover">
+  <table class="table table-bordered table-striped table-hover contacts-table">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Phone</th>
-        <th>E-mail</th>
+        <th ng-click="sortBy('name')">
+          Name
+          <i ng-show="sort.by == 'name'" class="glyphicon" ng-class="{'glyphicon-chevron-up': sort.asc, 'glyphicon-chevron-down': !sort.asc}"></i>
+        </th>
+        <th ng-click="sortBy('phone')">
+          Phone
+          <i ng-show="sort.by == 'phone'" class="glyphicon" ng-class="{'glyphicon-chevron-up': sort.asc, 'glyphicon-chevron-down': !sort.asc}"></i>
+        </th>
+        <th ng-click="sortBy('email')">
+          E-mail
+          <i ng-show="sort.by == 'email'" class="glyphicon" ng-class="{'glyphicon-chevron-up': sort.asc, 'glyphicon-chevron-down': !sort.asc}"></i>
+        </th>
+        <th ng-click="sortBy('birthdate')">
+          Birthdate
+          <i ng-show="sort.by == 'birthdate'" class="glyphicon" ng-class="{'glyphicon-chevron-up': sort.asc, 'glyphicon-chevron-down': !sort.asc}"></i>
+        </th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="c in contacts">
+      <tr ng-repeat="c in contacts | filter:searchQuery | orderBy : sort.by : !sort.asc as filteredContacts">
         <td>
           <strong><a ui-sref="show({id: c.id})">{{ c.name }}</a></strong><br>
           {{ c.company }}
@@ -37,6 +50,7 @@
         <td>
           <a href="mailto:{{ c.email }}">{{ c.email }}</a>
         </td>
+        <td>{{ c.birthdate | date:'d.M.yyyy' }}</td>
       </tr>
     </tbody>
   </table>

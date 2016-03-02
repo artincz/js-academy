@@ -3,10 +3,8 @@ angular.module('contacts-app').config(function($stateProvider) {
       parent: 'layout',
       url: '/show/:id',
       templateUrl: 'app/show/show.html',
-      controller: function($scope, $stateParams){
-        $scope.contact = contacts.filter(function(contact) {
-          return contact.id == $stateParams.id;
-        })[0];
+      controller: function($scope, $stateParams, contactService){
+        $scope.contact = contactService.find($stateParams.id);
       }
     })
 });
