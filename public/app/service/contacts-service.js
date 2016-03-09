@@ -1,8 +1,10 @@
-angular.module('contacts-app').factory('contactService', function() {
+var app = angular.module('sample-app');
+
+app.factory('contactsService', function() {
 
   var contacts = [
-    {id: 1, name: 'Donald Black', company: 'Topicware', phone: '6-(880)062-6935', email: 'dblack0@mashable.com', note: 'Lorem ipsum', birthdate: new Date(1982, 11, 24)},
-    {id: 2, name: 'Frank Little', company: 'Browseblab', phone: '9-(804)406-9373', email: 'flittle2@tumblr.com', note: 'Lorem ipsum', birthdate: new Date(1990, 0, 1)}
+    {id: 1, name: 'Donald Black', company: 'Topicware', phone: '6-(880)062-6935', email: 'dblack0@mashable.com', note: 'Lorem ipsum'},
+    {id: 2, name: 'Frank Little', company: 'Browseblab', phone: '9-(804)406-9373', email: 'flittle2@tumblr.com', note: 'Lorem ipsum'}
   ];
 
   var lastId = 2;
@@ -29,4 +31,3 @@ angular.module('contacts-app').factory('contactService', function() {
     }
   };
 });
-

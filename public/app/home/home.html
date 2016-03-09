@@ -7,41 +7,32 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-      <p class="lead">{{ filteredContacts.length }} matching contacts</p>
+      <p class="lead">{{ filteredContacts.length }} matching contact<span ng-hide="filteredContacts.length == 1">s</span></p>
     </div>
     <div class="col-md-4">
       <input class="form-control" placeholder="Search..." autofocus ng-model="searchQuery">
     </div>
   </div>
 
-  <button ui-sref="new" class="btn btn-success">Add</button>
-
   <br>
   <br>
 
   <table class="table table-bordered table-striped table-hover contacts-table">
     <thead>
-      <tr>
-        <th ng-click="sortBy('name')">
-          Name
-          <i ng-show="sort.by == 'name'" class="glyphicon" ng-class="{'glyphicon-chevron-up': sort.asc, 'glyphicon-chevron-down': !sort.asc}"></i>
-        </th>
-        <th ng-click="sortBy('phone')">
-          Phone
-          <i ng-show="sort.by == 'phone'" class="glyphicon" ng-class="{'glyphicon-chevron-up': sort.asc, 'glyphicon-chevron-down': !sort.asc}"></i>
-        </th>
-        <th ng-click="sortBy('email')">
-          E-mail
-          <i ng-show="sort.by == 'email'" class="glyphicon" ng-class="{'glyphicon-chevron-up': sort.asc, 'glyphicon-chevron-down': !sort.asc}"></i>
-        </th>
-        <th ng-click="sortBy('birthdate')">
-          Birthdate
-          <i ng-show="sort.by == 'birthdate'" class="glyphicon" ng-class="{'glyphicon-chevron-up': sort.asc, 'glyphicon-chevron-down': !sort.asc}"></i>
-        </th>
-      </tr>
+      <th ng-click="sort='name'; sortOrder=!sortOrder">
+        Name
+        <i ng-show="sort == 'name'" class="glyphicon" ng-class="{'glyphicon-chevron-up': sortOrder, 'glyphicon-chevron-down': !sortOrder}"></i></th>
+      <th ng-click="sort='phone'; sortOrder=!sortOrder">
+        Phone
+        <i ng-show="sort == 'phone'" class="glyphicon" ng-class="{'glyphicon-chevron-up': sortOrder, 'glyphicon-chevron-down': !sortOrder}"></i>
+      </th>
+      <th ng-click="sort='email'; sortOrder=!sortOrder">
+        E-mail
+        <i ng-show="sort == 'email'" class="glyphicon" ng-class="{'glyphicon-chevron-up': sortOrder, 'glyphicon-chevron-down': !sortOrder}"></i>
+      </th>
     </thead>
     <tbody>
-      <tr ng-repeat="c in contacts | filter:searchQuery | orderBy : sort.by : !sort.asc as filteredContacts">
+      <tr ng-repeat="c in contacts | filter:searchQuery | orderBy : sort : !sortOrder as filteredContacts">
         <td>
           <strong><a ui-sref="show({id: c.id})">{{ c.name }}</a></strong><br>
           {{ c.company }}
@@ -50,7 +41,6 @@
         <td>
           <a href="mailto:{{ c.email }}">{{ c.email }}</a>
         </td>
-        <td>{{ c.birthdate | date:'d.M.yyyy' }}</td>
       </tr>
     </tbody>
   </table>

@@ -1,65 +1,40 @@
-<div class="top">
-  <div class="container">
-    <a ui-sref="show({id: contact.id})"><i class="glyphicon glyphicon-chevron-left"></i> Back to detail</a>
+  <div class="top">
+    <div class="container">
+      <a ui-sref="show({id: contact.id})">Back to detail...</a>
 
-    <h1>
-      Edit contact<br>
-      <small>{{ contact.name }}</small>
-    </h1>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-2">
-
-      <form name="contactForm">
-
-        <label>Name</label>
-
-        <div class="form-group" ng-class="{'has-error': contactForm.name.$invalid}">
-          <label class="control-label" ng-show="contactForm.name.$error.required">Name is required.</label>
-
-          <input type="text" class="form-control" ng-model="contact.name" name="name" autofocus required>
-        </div>
-
-        <label>Company</label>
-
-        <div class="form-group" ng-class="{'has-error': contactForm.company.$invalid}">
-          <label class="control-label" ng-show="contactForm.company.$error.required">Company is required.</label>
-
-          <input type="text" class="form-control" ng-model="contact.company" name="company" required>
-        </div>
-
-        <label>Job Title</label>
-        <input type="text" class="form-control" ng-model="contact.jobTitle" name="jobTitle">
-
-        <label>Phone</label>
-        <input type="text" class="form-control" ng-model="contact.phone" name="phone">
-
-        <label>Email</label>
-
-        <div class="form-group" ng-class="{'has-error': contactForm.email.$invalid}">
-          <label class="control-label" ng-show="contactForm.email.$error.required">Email is required.</label>
-          <label class="control-label" ng-show="contactForm.email.$error.email">Email is not valid.</label>
-
-          <input type="email" class="form-control" ng-model="contact.email" name="email" required>
-        </div>
-
-        <label>Birthdate</label>
-        <input type="date" class="form-control" ng-model="contact.birthdate" name="birthdate">
-
-        <label>Address</label>
-        <textarea rows="4" class="form-control" ng-model="contact.address" name="address"></textarea>
-
-        <label>Note</label>
-        <textarea rows="4" class="form-control" ng-model="contact.note" name="note"></textarea>
-
-        <br>
-
-        <input type="submit" ng-click="save()" ng-disabled="!contactForm.$valid" class="btn btn-primary" value="Save">
-        <a ui-sref="show({id: contact.id})" class="btn btn-link">Cancel</a>
-      </form>
+      <h1>
+        Edit contact<br>
+        <small>{{ contact.name }}</small>
+      </h1>
     </div>
   </div>
-</div>
+
+  <div class="container">
+    <form>
+      <label>Name</label>
+      <input type="text" class="form-control" ng-model="contact.name" autofocus>
+
+      <label>Company</label>
+      <input type="text" class="form-control" ng-model="contact.company">
+
+      <label>Job Title</label>
+      <input type="text" class="form-control" ng-model="contact.jobTitle">
+
+      <label>Phone</label>
+      <input type="text" class="form-control" ng-model="contact.phone">
+
+      <label>Email</label>
+      <input type="text" class="form-control" ng-model="contact.email">
+
+      <label>Address</label>
+      <textarea rows="4" class="form-control" ng-model="contact.address"></textarea>
+
+      <label>Note</label>
+      <textarea rows="4" class="form-control" ng-model="contact.note"></textarea>
+
+      <br>
+
+      <a ng-click="save()" class="btn btn-primary">Save</a>
+      <a ui-sref="show({id: contact.id})" class="btn btn-link">Cancel</a>
+    </form>
+  </div>

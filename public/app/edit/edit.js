@@ -1,16 +1,18 @@
-angular.module('contacts-app').config(function($stateProvider) {
+var app = angular.module('sample-app');
+
+app.config(function($stateProvider) {
   $stateProvider.state('edit', {
-      parent: 'layout',
-      url: '/edit/:id',
-      templateUrl: 'app/edit/edit.html',
-      controller: function($scope, $stateParams, $state, contactService) {
-        $scope.contact = contactService.find($stateParams.id);
+    parent: 'layout',
+    url: '/edit/:id',
+    templateUrl: 'app/edit/edit.html',
+    controller: function($scope, $stateParams, $state, contactsService) {
+      $scope.contact = contactsService.find($stateParams.id);
 
-        $scope.save = function() {
-          $scope.contact = contactService.update($scope.contact);
+      $scope.save = function() {
+        contactsService.update($scope.contact);
 
-          $state.go('show', {id: $scope.contact.id});
-        };
-      }
-    })
+        $state.go('show', {id: $scope.contact.id});
+      };
+    }
+  })
 });

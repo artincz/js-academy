@@ -1,6 +1,6 @@
 <div class="top">
   <div class="container">
-    <a ui-sref="home"><i class="glyphicon glyphicon-chevron-left"></i> Back to contacts...</a>
+    <a  ui-sref="home">Back to contacts...</a>
 
     <div class="pull-right">
       <a ui-sref="edit({id: contact.id})" class="btn btn-default">Edit</a>
@@ -19,24 +19,19 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-4" ng-if="contact.phone">
+    <div class="col-md-4">
       <h3><small>Phone</small></h3>
       {{ contact.phone }}
     </div>
 
-    <div class="col-md-4" ng-if="contact.email">
+    <div class="col-md-4">
       <h3><small>Email</small></h3>
       {{ contact.email }}
     </div>
 
-    <div class="col-md-4" ng-if="contact.address">
+    <div class="col-md-4">
       <h3><small>Address</small></h3>
       <address>{{ contact.address }}</address>
-    </div>
-
-    <div class="col-md-4" ng-if="contact.birthdate">
-      <h3><small>Birthdate</small></h3>
-      <p>{{ contact.birthdate | date:'d.M.yyyy' }}</p>
     </div>
 
     <div class="col-md-8">
