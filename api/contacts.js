@@ -12,5 +12,11 @@ module.exports = {
 
   findAll: function() {
     return _.cloneDeep(contacts);
+  },
+
+  update: function(id, contact) {
+    var dbContact = _.find(contacts, {id: +id});
+    _.assign(dbContact, contact);
+    console.log("Contact updated " + id);
   }
 };

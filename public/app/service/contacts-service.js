@@ -9,8 +9,7 @@ app.factory('contactsService', function($http) {
     },
 
     update: function(contact) {
-      console.warn('contactService.update not implemented!');
-      return contact;
+      return $http.post('/api/contacts/' + contact.id, contact);
     },
 
     find: function(id) {
