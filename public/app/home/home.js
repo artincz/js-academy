@@ -6,7 +6,11 @@ app.config(function($stateProvider) {
       url: '/',
       templateUrl: 'app/home/home.html',
       controller: function($scope, contactsService) {
-        $scope.contacts = contactsService.findAll();
+        contactsService
+          .findAll()
+          .then(function(contacts) {
+            $scope.contacts = contacts;
+          });
       }
-    })
+    });
 });

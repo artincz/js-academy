@@ -6,7 +6,11 @@ app.config(function($stateProvider) {
     url: '/edit/:id',
     templateUrl: 'app/edit/edit.html',
     controller: function($scope, $stateParams, $state, contactsService) {
-      $scope.contact = contactsService.find($stateParams.id);
+        contactsService
+          .find($stateParams.id)
+          .then(function(contact) {
+            $scope.contact = contact;
+          });
 
       $scope.save = function() {
         contactsService.update($scope.contact);
@@ -14,5 +18,5 @@ app.config(function($stateProvider) {
         $state.go('show', {id: $scope.contact.id});
       };
     }
-  })
+  });
 });

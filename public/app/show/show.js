@@ -6,9 +6,11 @@ app.config(function($stateProvider) {
     url: '/show/:id',
     templateUrl: 'app/show/show.html',
     controller: function($scope, $stateParams, contactsService) {
-
-      $scope.contact = contactsService.find($stateParams.id);
-
+      contactsService
+        .find($stateParams.id)
+        .then(function(contact) {
+          $scope.contact = contact;
+      });
     }
   });
 });
