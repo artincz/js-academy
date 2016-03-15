@@ -34,7 +34,7 @@
     <tbody>
       <tr ng-repeat="c in contacts | filter:searchQuery | orderBy : sort : !sortOrder as filteredContacts">
         <td>
-          <strong><a ui-sref="show({id: c.id})">{{ c.name }}</a></strong><br>
+          <strong><a ui-sref="show({id: c._id})">{{ c.name }}</a></strong><br>
           {{ c.company }}
         </td>
         <td>{{ c.phone }}</td>

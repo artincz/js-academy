@@ -16,7 +16,7 @@ app.config(function($stateProvider) {
         contactsService
           .update($scope.contact)
           .then(function() {
-            $state.go('show', {id: $scope.contact.id});
+            $state.go('show', {id: $scope.contact._id});
           });
       };
     }

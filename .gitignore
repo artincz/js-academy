@@ -1,5 +1,6 @@
 node_modules
 public/bower_components
+data/
 
 .idea
 *.iml

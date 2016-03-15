@@ -9,7 +9,7 @@ app.factory('contactsService', function($http) {
     },
 
     update: function(contact) {
-      return $http.post('/api/contacts/' + contact.id, contact);
+      return $http.post('/api/contacts/' + contact._id, contact);
     },
 
     delete: function(id) {

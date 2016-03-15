@@ -7,28 +7,57 @@ var contacts = require('./api/contacts');
 app.use(bodyParser.json());
 
 app.get('/api/contacts', function(req, res) {
-  res.json(contacts.findAll());
+  contacts.findAll(function(err, docs) {
+    if (err) {
+      res.sendStatus(500);
+    }
+    else {
+      res.json(docs);
+    }
+  });
 });
 
 app.get('/api/contacts/:id', function(req, res) {
-  var contact = contacts.find(req.params.id)
-  if (contact) {
-    res.json(contact);
-  }
-  else {
-    res.sendStatus(404);
-  }
+  contacts.find(req.params.id, function(err, doc) {
+    if (err) {
+      res.sendStatus(500);
+    }
+    else if (!doc) {
+      res.sendStatus(404);
+    }
+    else {
+      res.json(doc);
+    }
+  });
 });
 
 app.post('/api/contacts/:id', function(req, res) {
   var contact = req.body;
-  var success = contacts.update(req.params.id, contact);
-  res.sendStatus(success ? 204 : 404);
+  contacts.update(req.params.id, contact, function(err, cnt) {
+    if (err) {
+      res.sendStatus(500);
+    }
+    else if (cnt == 0) {
+      res.sendStatus(404);
+    }
+    else {
+      res.sendStatus(204);
+    }
+  });
 });
 
 app.delete('/api/contacts/:id', function(req, res) {
-  var success = contacts.delete(req.params.id);
-  res.sendStatus(success ? 204 : 404);
+  contacts.delete(req.params.id, function(err, cnt) {
+    if (err) {
+      res.sendStatus(500);
+    }
+    else if (cnt == 0) {
+      res.sendStatus(404);
+    }
+    else {
+      res.sendStatus(204);
+    }
+  });
 });
 
 app.use(express.static('public'));
