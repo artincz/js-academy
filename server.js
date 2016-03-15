@@ -11,18 +11,24 @@ app.get('/api/contacts', function(req, res) {
 });
 
 app.get('/api/contacts/:id', function(req, res) {
-  res.json(contacts.find(req.params.id));
+  var contact = contacts.find(req.params.id)
+  if (contact) {
+    res.json(contact);
+  }
+  else {
+    res.sendStatus(404);
+  }
 });
 
 app.post('/api/contacts/:id', function(req, res) {
   var contact = req.body;
-  contacts.update(req.params.id, contact);
-  res.sendStatus(204);
+  var success = contacts.update(req.params.id, contact);
+  res.sendStatus(success ? 204 : 404);
 });
 
 app.delete('/api/contacts/:id', function(req, res) {
-  contacts.delete(req.params.id);
-  res.sendStatus(204);
+  var success = contacts.delete(req.params.id);
+  res.sendStatus(success ? 204 : 404);
 });
 
 app.use(express.static('public'));

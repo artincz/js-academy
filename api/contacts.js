@@ -16,12 +16,22 @@ module.exports = {
 
   update: function(id, contact) {
     var dbContact = _.find(contacts, {id: +id});
+    if (!dbContact) {
+      console.log('Contact not found ' + id);
+      return false;
+    }
     _.assign(dbContact, contact);
     console.log("Contact updated " + id);
+    return true;
   },
 
   delete: function(id) {
-    _.remove(contacts, {id: +id});
+    var removed = _.remove(contacts, {id: +id});
+    if (removed.length == 0) {
+      console.log('Contact not found ' + id);
+      return false;
+    }
     console.log("Contact deleted " + id);
+    return true;
   }
 };
