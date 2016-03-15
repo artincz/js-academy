@@ -20,6 +20,11 @@ app.post('/api/contacts/:id', function(req, res) {
   res.sendStatus(204);
 });
 
+app.delete('/api/contacts/:id', function(req, res) {
+  contacts.delete(req.params.id);
+  res.sendStatus(204);
+});
+
 app.use(express.static('public'));
 
 app.listen(8080, function () {

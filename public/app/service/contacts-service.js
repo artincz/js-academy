@@ -12,6 +12,10 @@ app.factory('contactsService', function($http) {
       return $http.post('/api/contacts/' + contact.id, contact);
     },
 
+    delete: function(id) {
+      return $http.delete('/api/contacts/' + id);
+    },
+
     find: function(id) {
       return $http.get('/api/contacts/' + id)
         .then(function(res) {

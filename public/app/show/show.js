@@ -5,12 +5,21 @@ app.config(function($stateProvider) {
     parent: 'layout',
     url: '/show/:id',
     templateUrl: 'app/show/show.html',
-    controller: function($scope, $stateParams, contactsService) {
+    controller: function($scope, $stateParams, $state, contactsService) {
       contactsService
         .find($stateParams.id)
         .then(function(contact) {
           $scope.contact = contact;
       });
+
+      $scope.delete = function() {
+        contactsService
+          .delete($stateParams.id)
+          .then(function() {
+            $state.go('home');
+          });
+      };
+
     }
   });
 });

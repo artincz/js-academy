@@ -18,5 +18,10 @@ module.exports = {
     var dbContact = _.find(contacts, {id: +id});
     _.assign(dbContact, contact);
     console.log("Contact updated " + id);
+  },
+
+  delete: function(id) {
+    _.remove(contacts, {id: +id});
+    console.log("Contact deleted " + id);
   }
 };
