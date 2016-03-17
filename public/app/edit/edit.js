@@ -6,18 +6,20 @@ app.config(function($stateProvider) {
     url: '/edit/:id',
     templateUrl: 'app/edit/edit.html',
     controller: function($scope, $stateParams, $state, contactsService) {
-        contactsService
-          .find($stateParams.id)
-          .then(function(contact) {
-            $scope.contact = contact;
-          });
+      contactsService
+        .find($stateParams.id)
+        .then(function(contact) {
+          $scope.contact = contact;
+        });
 
       $scope.save = function() {
-        contactsService
-          .update($scope.contact)
-          .then(function() {
-            $state.go('show', {id: $scope.contact._id});
-          });
+        if ($scope.contactForm.$valid) {
+          contactsService
+            .update($scope.contact)
+            .then(function() {
+              $state.go('show', {id: $scope.contact._id});
+            });
+          }
       };
     }
   });
