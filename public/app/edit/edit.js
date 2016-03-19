@@ -11,6 +11,7 @@ app.config(function ($stateProvider) {
           .find($stateParams.id)
           .then(function (contact) {
             $scope.contact = contact;
+            $scope.contact.birthDate = contact.birthDate && new Date(contact.birthDate);
           });
       }
 

@@ -15,6 +15,15 @@
       <input name="name" type="text" class="form-control" ng-model="contact.name" autofocus required>
     </jsa-field>
 
+    <jsa-field label="Date of birth">
+      <div class="input-group">
+        <input type="text" class="form-control" uib-datepicker-popup="dd.MM.yyyy" ng-model="contact.birthDate" is-open="birthDateOpened" />
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="birthDateOpened=true"><i class="glyphicon glyphicon-calendar"></i></button>
+        </span>
+      </div>
+    </jsa-field>
+
     <jsa-field label="Company">
       <input name="company" type="text" class="form-control" ng-model="contact.company">
     </jsa-field>
