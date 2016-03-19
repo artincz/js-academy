@@ -1,10 +1,10 @@
 <div class="top">
   <div class="container">
-    <a ui-sref="show({id: contact._id})">Back to detail...</a>
+    <a ui-sref="show({id: contact._id})" ng-show="contact._id">Back to detail...</a>
 
     <h1>
-      Edit contact<br>
-      <small>{{ contact.name }}</small>
+      {{ contact._id ? 'Edit contact' : 'New contact'}}<br>
+      <small ng-show="contact._id">{{ contact.name }}</small>
     </h1>
   </div>
 </div>
@@ -55,7 +55,7 @@
 
     <div class="form-group">
       <a class="btn btn-primary" ng-disabled="contactForm.$invalid" ng-click="save()">Save</a>
-      <a ui-sref="show({id: contact._id})" class="btn btn-link">Cancel</a>
+      <a ng-click="returnPage()" class="btn btn-link">Cancel</a>
     </div>
   </form>
 </div>

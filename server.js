@@ -31,6 +31,18 @@ app.get('/api/contacts/:id', function(req, res) {
   });
 });
 
+app.post('/api/contacts', function(req, res) {
+  var contact = req.body;
+  contacts.insert(contact, function(err, newContact) {
+    if (err) {
+      res.sendStatus(500);
+    }
+    else {
+      res.status(201).json(newContact);
+    }
+  });
+});
+
 app.post('/api/contacts/:id', function(req, res) {
   var contact = req.body;
   contacts.update(req.params.id, contact, function(err, cnt) {

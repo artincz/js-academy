@@ -20,6 +20,10 @@ module.exports = {
     contacts.find({}, cb)
   },
 
+  insert: function(contact, cb) {
+    contacts.insert(contact, cb)
+  },
+
   update: function(id, contact, cb) {
     contacts.update({_id: id}, contact, {}, cb)
   },

@@ -4,8 +4,10 @@ app.factory('contactsService', function($http) {
 
   return {
     create: function(contact) {
-      console.warn('contactService.create not implemented!');
-      return contact;
+      return $http.post('/api/contacts', contact)
+        .then(function(res) {
+          return res.data;
+        });
     },
 
     update: function(contact) {
