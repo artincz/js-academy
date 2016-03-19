@@ -1,6 +1,6 @@
 <div class="top">
   <div class="container">
-    <a ui-sref="show({id: contact._id})" ng-show="contact._id">Back to detail...</a>
+    <a ui-sref="show({id: contact._id, name: '{{contact.name | slugify}}'})" ng-show="contact._id">Back to detail...</a>
 
     <h1>
       {{ contact._id ? 'Edit contact' : 'New contact'}}<br>
@@ -10,7 +10,7 @@
 </div>
 
 <div class="container">
-  <form name="contactForm">
+  <form name="contactForm" novalidate ng-submit="contactForm.$valid && save()">
     <jsa-field label="Name *">
       <input name="name" type="text" class="form-control" ng-model="contact.name" autofocus required>
     </jsa-field>
@@ -49,7 +49,7 @@
     </jsa-field>
 
     <div class="form-group">
-      <a class="btn btn-primary" ng-disabled="contactForm.$invalid" ng-click="save()">Save</a>
+      <button class="btn btn-primary">Save</button>
       <a ng-click="returnPage()" class="btn btn-link">Cancel</a>
     </div>
   </form>
