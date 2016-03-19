@@ -11,47 +11,33 @@
 
 <div class="container">
   <form name="contactForm">
-    <div class="form-group" ng-class="{'has-error': contactForm.name.$invalid}">
-      <label class="control-label">Name *</label>
+    <jsa-field label="Name *">
       <input name="name" type="text" class="form-control" ng-model="contact.name" autofocus required>
-      <span class="help-block" ng-show="contactForm.name.$error.required">Name is required</span>
-    </div>
+    </jsa-field>
 
-    <div class="form-group" ng-class="{'has-error': contactForm.company.$invalid}">
-      <label class="control-label">Company</label>
+    <jsa-field label="Company">
       <input name="company" type="text" class="form-control" ng-model="contact.company">
-    </div>
+    </jsa-field>
 
-    <div class="form-group" ng-class="{'has-error': contactForm.jobTitle.$invalid}">
-      <label class="control-label">Job Title</label>
+    <jsa-field label="Job Title">
       <input name="jobTitle" type="text" class="form-control" ng-model="contact.jobTitle">
-    </div>
+    </jsa-field>
 
-    <div class="form-group" ng-class="{'has-error': contactForm.phone.$invalid}">
-      <label class="control-label">Phone *</label>
+    <jsa-field label="Phone *">
       <input name="phone" type="text" class="form-control" ng-model="contact.phone" required ng-pattern="/^\+?[\d\s]+$/">
-      <span class="help-block" ng-show="contactForm.phone.$error.required">Phone is required</span>
-      <span class="help-block" ng-show="contactForm.phone.$error.pattern">It has look like a phone number</span>
-    </div>
+    </jsa-field>
 
-    <div class="form-group" ng-class="{'has-error': contactForm.email.$invalid}">
-      <label class="control-label">Email *</label>
+    <jsa-field label="Email *">
       <input name="email" type="email" class="form-control" ng-model="contact.email" required>
-      <span class="help-block" ng-show="contactForm.email.$error.required">Email is required</span>
-      <span class="help-block" ng-show="contactForm.email.$error.email">This doesn't look like an email</span>
-    </div>
+    </jsa-field>
 
-    <div class="form-group" ng-class="{'has-error': contactForm.address.$invalid}">
-      <label class="control-label">Address *</label>
+    <jsa-field label="Address *">
       <textarea name="address" rows="4" class="form-control" ng-model="contact.address" required jsa-address></textarea>
-      <span class="help-block" ng-show="contactForm.address.$error.required">Address is required</span>
-      <span class="help-block" ng-show="contactForm.address.$error.jsaAddress">Address must have at least three lines</span>
-    </div>
+    </jsa-field>
 
-    <div class="form-group" ng-class="{'has-error': contactForm.note.$invalid}">
-      <label class="control-label">Note</label>
+    <jsa-field label="Note">
       <textarea name="note" rows="4" class="form-control" ng-model="contact.note"></textarea>
-    </div>
+    </jsa-field>
 
     <div class="form-group">
       <a class="btn btn-primary" ng-disabled="contactForm.$invalid" ng-click="save()">Save</a>

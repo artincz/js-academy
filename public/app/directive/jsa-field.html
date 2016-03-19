@@ -1,0 +1,12 @@
+<div class="form-group" ng-class="{'has-error': showErrors()}">
+  <label ng-show=" label " class="control-label">{{ label }}</label>
+
+  <div ng-transclude class="input-container"></div>
+
+  <div ng-show="showErrors()" class="help-block">
+    <span ng-show="modelErrors.required">This field is required</span>
+    <span ng-show="modelErrors.email">This doesn't look like an email</span>
+    <span ng-show="modelErrors.pattern">This field doesn't match specified format</span>
+    <span ng-show="modelErrors.jsaAddress">Address must have at least three lines</span>
+  </div>
+</div>
