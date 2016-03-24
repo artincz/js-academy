@@ -1,10 +1,43 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var cookieSession = require('cookie-session');
 
 var contacts = require('./api/contacts');
 
+app.use(express.static('public'));
 app.use(bodyParser.json());
+app.use(cookieSession({keys: ['secret']}));
+
+app.post('/api/login', function(req, res){
+  /*if ( ! ... ){
+    res.sendStatus(403);
+  }*/
+
+  req.session.user = {
+    name: 'John Doe'
+  };
+
+  res.sendStatus(204);
+});
+
+app.post('/api/logout', function(req, res){
+  req.session = null;
+
+  res.sendStatus(204);
+});
+
+app.use(function(req, res, next){
+  if ( ! req.session.user){
+    return res.sendStatus(401);
+  }
+
+  next();
+});
+
+app.get('/api/user', function(req, res){
+  res.send(req.session.user);
+});
 
 app.get('/api/contacts', function(req, res) {
   contacts.findAll(function(err, docs) {
@@ -71,8 +104,6 @@ app.delete('/api/contacts/:id', function(req, res) {
     }
   });
 });
-
-app.use(express.static('public'));
 
 app.listen(8080, function () {
   console.log('Example app listening on port 8080!');

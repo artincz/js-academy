@@ -1,19 +1,21 @@
-<div class="row">
-  <div class="col-md-4 col-md-push-4">
-    <br><br><br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-push-4">
+      <br><br><br>
 
-    <h1>Sign in</h1>
+      <h1>Sign in</h1>
 
-    <form>
-      <label>Username</label>
-      <input type="text" class="form-control" autofocus>
+      <form>
+        <label>Username</label>
+        <input type="text" ng-model="credential.username" class="form-control" autofocus>
 
-      <label>Password</label>
-      <input type="password" class="form-control">
+        <label>Password</label>
+        <input type="password" ng-model="credential.password" class="form-control">
 
-      <br>
+        <br>
 
-      <button class="btn btn-primary" ui-sref="home">Sign in</button>
-    </form>
+        <button class="btn btn-primary" ng-click=" signIn() ">Sign in</button>
+      </form>
+    </div>
   </div>
 </div>
